@@ -1,0 +1,25 @@
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
+    {% if perms.auth.add_user %}
+        <p><a href="{% url 'create_account' %}">Create Account</a></p>
+    {% endif %}
+    <p><a href="{% url 'create_report' %}">Create Report</a></p>
+{% else %}
+    <p><a href="{% url 'sign_in' %}">Login</a> | <a href="{% url 'sign_up' %}">Sign Up</a></p>
+{% endif %}
+
+<h1>Reports</h1>
+<ul>
+    {% for report in reports %}
+    <li>
+        {{ report.content }} (by {{ report.author }})
+        {% if report.author == user %}
+            | <a href="{% url 'edit_report' report.id %}">Edit</a>
+            | <form action="{% url 'delete_report' report.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+            </form>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

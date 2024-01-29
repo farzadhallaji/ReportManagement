@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Edit Report</h2>
+  <form method="post">
+    {% csrf_token %}
+    <textarea name="content" cols="40" rows="10">{{ report.content }}</textarea><br>
+    <input type="submit" value="Update">
+  </form>
+{% endblock %}

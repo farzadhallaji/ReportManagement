@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ report.content }}</h2>
+<p>Created by: {{ report.author }}</p>
+<p>Created at: {{ report.created_at }}</p>
+<p>Last updated: {{ report.updated_at }}</p>
+
+
+<p><a href="{% url 'report_list' %}">Reports List</a>
+{% endblock %}
