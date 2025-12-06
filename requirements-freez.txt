@@ -20,7 +20,7 @@ itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
 Jinja2 @ file:///croot/jinja2_1666908132255/work
 MarkupSafe @ file:///opt/conda/conda-bld/markupsafe_1654597864307/work
 multidict==6.0.4
-pycares==4.3.0
+pycares==4.9.0
 pycparser==2.21
 requests==2.32.4
 SQLAlchemy==2.0.7
